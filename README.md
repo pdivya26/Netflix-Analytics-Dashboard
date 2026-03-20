@@ -1,17 +1,17 @@
 # Netflix Content Strategy Dashboard
 
-An interactive data analytics dashboard built using **Streamlit** to explore Netflix’s content strategy, growth trends, and distribution across genres and countries.
+An end-to-end data analytics project analyzing Netflix’s content strategy using Python, Streamlit, Power BI, and Google Colab.
 
 ## Project Overview
 
-This project analyzes Netflix’s content dataset to uncover key insights about:
+This project explores Netflix’s content dataset to uncover trends in content production, distribution, and growth.
 
-- Content growth over time  
-- Distribution of Movies vs TV Shows  
-- Top producing countries  
-- Popular genres  
-- Ratings distribution  
-- Content duration patterns  
+It demonstrates a complete data workflow — from raw data cleaning and exploratory analysis to building interactive dashboards.
+
+Components include:
+- Interactive Streamlit Dashboard
+- Power BI Dashboard
+- Data Cleaning & EDA in Google Colab
 
 The dashboard provides **interactive filters and dynamic insights**, allowing users to explore trends easily.
 
@@ -29,6 +29,8 @@ The dashboard provides **interactive filters and dynamic insights**, allowing us
 - **Pandas**
 - **Streamlit**
 - **Plotly**
+- **Power BI**
+- **Google Colab**
 
 ## Features
 
@@ -42,7 +44,30 @@ The dashboard provides **interactive filters and dynamic insights**, allowing us
   - Ratings distribution  
   - Duration insights  
 - Automated insights based on filtered data  
-- Download filtered dataset  
+- Download filtered dataset
+
+## Data Cleaning & EDA (Colab)
+
+Performed in Google Colab:
+- Data cleaning (missing values, formatting)
+- Feature engineering (year_added, duration)
+- Exploratory Data Analysis (EDA)
+- Initial insights generation 
+
+## Power BI Dashboard
+
+An interactive Power BI dashboard designed to provide a comprehensive overview of Netflix content:
+
+- KPI card displaying total number of titles
+- Year slicer for dynamic filtering
+- Content distribution (Movies vs TV Shows)
+- Content growth trends over time
+- Global content distribution map
+- Ratings distribution analysis
+- Monthly content addition trends
+- Duration insights for Movies and TV Shows
+
+This dashboard provides a business-style analytical view, complementing the Streamlit app with rich visual storytelling.
 
 ## Implementation Screenshots
 
@@ -58,6 +83,24 @@ The dashboard provides **interactive filters and dynamic insights**, allowing us
 
 <img width="1355" height="761" alt="image" src="https://github.com/user-attachments/assets/ed03bace-d4c2-4179-ad88-cc10f44486b9" />
 
+## Setup Instructions 
+ 
+**Clone the repository or download the ZIP**  
+
+**Install dependencies**  
+```
+pip install -r requirements.txt
+```
+
+**Run the Streamlit app**  
+```
+streamlit run app.py
+```
+
 ## Acknowledgements
 
 Dataset inspired by Netflix catalog data available publicly for analysis and learning purposes.
+
+## Show Your Support
+
+If you found this project useful, consider giving it a star ⭐ on GitHub!
