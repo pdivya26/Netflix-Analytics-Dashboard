@@ -47,7 +47,6 @@ st.markdown(f"""
 
     /* Font colors of insights */
     .stAlert {{
-        background-color: #1a1a1a !important;
         border-radius: 0px !important;
     }}
 
