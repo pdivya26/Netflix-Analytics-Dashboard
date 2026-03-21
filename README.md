@@ -1,14 +1,12 @@
 # Netflix Content Strategy Dashboard
 
-An end-to-end data analytics project analyzing Netflix’s content strategy using Python, Streamlit, Power BI, and Google Colab.
+A complete data analytics project showcasing data cleaning, exploratory analysis, and interactive dashboard development using real-world Netflix data.
 
 ## Project Overview
 
-This project explores Netflix’s content dataset to uncover trends in content production, distribution, and growth.
+This project analyzes Netflix’s content dataset to uncover trends in content production, distribution, and growth. It demonstrates a complete data workflow — from data cleaning and exploratory analysis to building interactive dashboards for insight generation.
 
-It demonstrates a complete data workflow — from raw data cleaning and exploratory analysis to building interactive dashboards.
-
-Components include:
+**Components include:**
 - Interactive Streamlit Dashboard
 - Power BI Dashboard
 - Data Cleaning & EDA in Google Colab
@@ -17,11 +15,18 @@ The dashboard provides **interactive filters and dynamic insights**, allowing us
 
 ## Key Insights
 
-- Netflix’s content additions peaked around **2019–2020**, marking its most aggressive expansion phase  
-- **Movies dominate** the catalog, but TV Shows are steadily increasing  
-- The **United States leads** content production, with strong global contributions  
-- **Drama and International content** are the most common genres  
-- Majority of content is targeted toward **mature audiences (TV-MA)**
+- Netflix’s content additions peaked around **2019–2020**, indicating a period of rapid global expansion  
+- **Movies form the majority** of the catalog, while TV Shows show steady growth over time  
+- The **United States is the leading content producer**, with increasing contributions from other countries  
+- **Drama and International content** dominate the platform’s genre distribution  
+- A large portion of content is rated **TV-MA**, reflecting a focus on mature audiences  
+
+## Project Highlights
+
+- Built an end-to-end data analytics pipeline (Data Cleaning → EDA → Visualization)
+- Developed both **technical (Streamlit)** and **business-style (Power BI)** dashboards
+- Implemented **dynamic insight generation** based on user filters
+- Applied **data storytelling techniques** to explain trends clearly
 
 ## Tech Stack
 
@@ -34,21 +39,21 @@ The dashboard provides **interactive filters and dynamic insights**, allowing us
 
 ## Features
 
-- Search titles dynamically  
-- Filter by:
+- Interactive filtering:
   - Content Type (Movie / TV Show)
-  - Year Added  
-- Interactive visualizations:
-  - Content growth trends  
-  - Genre and country analysis  
-  - Ratings distribution  
-  - Duration insights  
-- Automated insights based on filtered data  
+  - Year Added
+- Dynamic visualizations:
+  - Content growth trends
+  - Genre and country analysis
+  - Ratings distribution
+  - Duration insights
+- Automatically generated insights based on selected filters
+- Clean and intuitive dashboard UI (Netflix-inspired theme)
 - Download filtered dataset
 
 ## Data Cleaning & EDA (Colab)
 
-Performed in Google Colab:
+Performed using Google Colab:
 - Data cleaning (missing values, formatting)
 - Feature engineering (year_added, duration)
 - Exploratory Data Analysis (EDA)
@@ -67,21 +72,23 @@ An interactive Power BI dashboard designed to provide a comprehensive overview o
 - Monthly content addition trends
 - Duration insights for Movies and TV Shows
 
-This dashboard provides a business-style analytical view, complementing the Streamlit app with rich visual storytelling.
+This dashboard provides a business-focused analytical view, complementing the Streamlit app with rich visual storytelling.
 
 ## Implementation Screenshots
 
-<img width="1915" height="902" alt="NA1" src="https://github.com/user-attachments/assets/38a8ec21-7f6f-42d4-9f52-8f8ffb7bb72c" />
+<img width="1919" height="905" alt="NA1" src="https://github.com/user-attachments/assets/3f1cbdf0-fdf0-4ba9-86d7-9f19076be336" />
 
-<img width="1919" height="901" alt="NA2" src="https://github.com/user-attachments/assets/47d448fd-18f1-4072-baca-bf0f8a22157f" />
+<img width="1919" height="906" alt="NA2" src="https://github.com/user-attachments/assets/f13f76e7-ce43-447e-bb1e-9fdaf5199413" />
 
-<img width="1919" height="898" alt="NA3" src="https://github.com/user-attachments/assets/b7eec0d7-44b2-440e-b952-eac4a0255a71" />
+<img width="1919" height="902" alt="NA3" src="https://github.com/user-attachments/assets/c57d0712-1c4c-4758-b936-3ea25908db66" />
 
-<img width="1919" height="900" alt="NA4" src="https://github.com/user-attachments/assets/ae8e3358-6e0d-40a7-95b0-c996dc62b348" />
+<img width="1919" height="903" alt="NA4" src="https://github.com/user-attachments/assets/259d0d05-ded0-4f37-96b3-b70ff7aa7dd2" />
 
-<img width="1919" height="900" alt="NA5" src="https://github.com/user-attachments/assets/1e9ddf3e-fe66-4691-906a-7dd2fc86c047" />
+<img width="1919" height="904" alt="NA5" src="https://github.com/user-attachments/assets/b70014ec-9818-49c3-9f7d-d1420bb7fed5" />
 
-<img width="1355" height="761" alt="image" src="https://github.com/user-attachments/assets/ed03bace-d4c2-4179-ad88-cc10f44486b9" />
+<img width="1919" height="902" alt="NA6" src="https://github.com/user-attachments/assets/48c7c34e-c13e-4158-9060-7f699d36e95f" />
+
+<img width="1355" height="761" alt="NA7" src="https://github.com/user-attachments/assets/d2745a91-decc-4a75-8584-4ac525eeef35" />
 
 ## Setup Instructions 
  
