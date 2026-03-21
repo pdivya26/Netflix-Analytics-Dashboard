@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 # ---- 1. Page Config & Brand Styling ----
-st.set_page_config(page_title="Netflix Analytics", layout="wide")
+st.set_page_config(page_title="Netflix Analytics Dashboard", layout="wide")
 
 NETFLIX_RED = "#E50914"
 px.defaults.template = "plotly_dark"
@@ -11,7 +11,7 @@ px.defaults.template = "plotly_dark"
 px.defaults.color_discrete_sequence = [NETFLIX_RED]
 
 # Custom CSS for Netflix Red Theme and Tab Fonts
-st.markdown(f"""
+st.markdown(f""" 
     <style>
     /* Metric Card Styling */
     .stMetric {{ 
