@@ -23,7 +23,7 @@ st.markdown(f"""
     }}
     
     /* Force Sharp Edges */
-    [data-testid="stSidebar"] img {{
+    [data-testid="stSidebar"] img {{ 
         border-radius: 0px !important;
         border: none !important;
         /* Ensure no "soft" edges from shadows or padding */
@@ -133,7 +133,7 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
-st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("<br><br>", unsafe_allow_html=True)
 
 tab_viz, tab_explore = st.tabs(["Analytics", "Data Explorer"])
 
