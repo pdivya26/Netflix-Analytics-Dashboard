@@ -48,6 +48,17 @@ st.markdown(f"""
         font-weight: bold;
     }}
 
+    /* Font colors of insights */
+    .stAlert {{
+        border-radius: 0px !important;
+    }}
+
+    .stAlert p, .stAlert div {{
+        color: #FFFFFF !important; /* Force text to White */
+        font-size: 16px !important;
+        font-weight: 500 !important;
+    }}
+
     footer {{visibility: hidden;}}
     </style>
     """, unsafe_allow_html=True)
