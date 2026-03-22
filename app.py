@@ -128,7 +128,7 @@ ins_mix, ins_growth, ins_country, ins_genre, ins_rating = get_dynamic_insights(f
 st.markdown(
     f"""
     <h1 style='text-align: center;'>
-        Netflix Content Strategy Dashboard
+        Netflix Content Strategy Analysis Dashboard
     </h1>
     """, 
     unsafe_allow_html=True
