@@ -55,19 +55,15 @@ This dashboard provides a business-focused analytical view, complementing the St
 
 ## Implementation Screenshots
 
-<img width="1919" height="906" alt="NA1" src="https://github.com/user-attachments/assets/2f95c72d-25a0-463b-80f7-07efecde3e81" />
+<img width="1919" height="903" alt="NA1" src="https://github.com/user-attachments/assets/2ea3928c-195f-4fb2-8008-6f43774e6a93" />
 
-<img width="1919" height="904" alt="NA2" src="https://github.com/user-attachments/assets/0797e915-65ed-434d-b383-21f58cbb8001" />
+<img width="1919" height="901" alt="NA2" src="https://github.com/user-attachments/assets/9e5ca78b-211a-46b7-8409-829a47ba7689" />
 
-<img width="1919" height="904" alt="NA3" src="https://github.com/user-attachments/assets/24bf3451-0506-43ab-a0b5-de7e16d81023" />
+<img width="1919" height="903" alt="NA3" src="https://github.com/user-attachments/assets/74ec6827-0e33-4a88-87b2-db50d23f5ccb" />
 
-<img width="1919" height="903" alt="NA4" src="https://github.com/user-attachments/assets/7e0bbe4f-5867-451b-a1a9-a1b8ed14fb03" />
+<img width="1919" height="905" alt="NA4" src="https://github.com/user-attachments/assets/2d7f9e7f-e26d-4ea2-9b24-d8da383c0774" />
 
-<img width="1919" height="906" alt="NA5" src="https://github.com/user-attachments/assets/265feaf2-553f-498a-97a5-e1ae45a67019" />
-
-<img width="1916" height="904" alt="NA6" src="https://github.com/user-attachments/assets/2acc122e-9f1c-41d8-a622-09c498a458ce" />
-
-<img width="1391" height="781" alt="NA7" src="https://github.com/user-attachments/assets/55d99564-bb28-4615-87b9-6468e8d0495a" />
+<img width="1279" height="718" alt="NADB" src="https://github.com/user-attachments/assets/c3cbbd68-af63-463d-906e-31cae8a0c003" />
 
 ## Setup Instructions 
  
