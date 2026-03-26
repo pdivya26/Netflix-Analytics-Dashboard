@@ -38,20 +38,21 @@ This dashboard provides a business-focused analytical view, complementing the St
 
 ## Key Insights
 
-- Netflix’s content additions peaked around **2019–2020**, indicating a period of rapid global expansion
-- **Movies form the majority** of the catalog, while TV Shows show steady growth over time
-- The **United States is the leading content producer**, with increasing contributions from other countries
-- **Drama and International content** dominate the platform’s genre distribution
-- A large portion of content is rated **TV-MA**, reflecting a focus on mature audiences
+- Movies dominate (~70%) vs TV shows (~30%), showing **heavier focus on film content**.
+**Drama and Comedy are the leading genres**, driving the majority of engagement.
+Content growth accelerated sharply **post-2016, peaking around 2019–2020**.
+**United States** contributes the most titles, followed by **India** and the **UK**.
+Peak content additions occur **mid-to-late year (July–October, December)**.
+**TV-MA is the most common rating**, signaling a strong mature-audience focus.
 
 ## Strategic Recommendations
-- Expand TV shows to improve engagement and retention
-- Focus releases in mid–late year peak periods
-- Replicate 2018–2020 high-growth strategy
-- Prioritize TV-MA/TV-14 while exploring kids content
-- Keep movie runtime within 80–120 minutes
-- Expand into emerging markets with localized content
-- Invest in short (1–3 season) series formats
+- **Increase investment in high-performing genre**s (Drama, Comedy) while testing niche categories for diversification.
+- **Expand TV show production** to balance portfolio and improve long-term user retention.
+- **Double down on international markets** (especially India) to localize and scale content supply.
+- Optimize **release schedules around peak months** to maximize engagement and visibility.
+- Diversify ratings mix by **adding more family-friendly content** to widen audience reach.
+- **Sustain post-2016 growth momentum** with data-driven greenlighting of new titles.
+- Leverage US dominance while **accelerating regional content** to reduce geographic dependency.
 
 ## Implementation Screenshots
 
