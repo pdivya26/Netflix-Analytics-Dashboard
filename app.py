@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 # ---- 1. Page Config & Brand Styling ----
-st.set_page_config(page_title="Netflix Analytics Dashboard", layout="wide")
+st.set_page_config(page_title="Netflix Content Strategy Analysis Dashboard", layout="wide")
 
 NETFLIX_RED = "#E50914"
 px.defaults.template = "plotly_dark"
@@ -139,12 +139,38 @@ tab_viz, tab_explore = st.tabs(["Analytics", "Data Explorer"])
 
 with tab_viz:
     # Row 0: KPIs
-    k1, k2, k3, k4, k5 = st.columns(5)
-    k1.metric("Total Titles", f"{len(filtered_df):,}")
-    k2.metric("Movies", (filtered_df['type'] == 'Movie').sum())
-    k3.metric("TV Shows", (filtered_df['type'] == 'TV Show').sum())
-    k4.metric("Total Countries", filtered_df[filtered_df['main_country'] != 'Unknown']['main_country'].nunique())
-    k5.metric("Total Genres", filtered_df['main_genre'].nunique())
+    # --- KPI Calculations ---
+    total_titles = len(filtered_df)
+
+    avg_titles = 0
+    df_f = filtered_df.copy()
+
+    # clean data (match Power BI behavior)
+    df_f = df_f[df_f['year_added'].notna()]
+    df_f['year_added'] = df_f['year_added'].astype(int)
+
+    # optional (ONLY if Power BI excludes 2024)
+    df_f = df_f[df_f['year_added'] < 2024]
+
+    # TOTAL TITLES (match COUNT in Power BI)
+    total_titles_clean = df_f['show_id'].count()
+
+    # ACTIVE YEARS (match DISTINCTCOUNT in Power BI)
+    active_years = df_f['year_added'].nunique()
+
+    # FINAL AVG
+    avg_titles = round(total_titles_clean / active_years)
+
+    top_rating = "N/A"
+    if not filtered_df['rating'].dropna().empty:
+        top_rating = filtered_df['rating'].mode()[0]
+
+    # --- KPI Display ---
+    k1, k2, k3 = st.columns(3)
+
+    k1.metric("Total Titles", f"{total_titles:,}")
+    k2.metric("Average Titles Added Per Year", avg_titles)
+    k3.metric("Top Rating", top_rating)
 
     st.markdown("---")
 
@@ -160,15 +186,22 @@ with tab_viz:
     with colB:
         trend_combined = filtered_df[filtered_df['year_added'].notna()].groupby(['year_added', 'type']).size().reset_index(name='Count')
         fig_trend = px.line(
-            trend_combined, 
-            x='year_added', 
-            y='Count', 
-            color='type', 
-            title='Content Growth Over Time: Movies vs TV Shows', 
+            trend_combined,
+            x='year_added',
+            y='Count',
+            color='type',
+            title='Content Growth Over Time: Movies vs TV Shows',
             labels={'year_added': 'Year Added', 'Count': 'Number of Titles'},
-            markers=True, 
             color_discrete_map={'Movie': NETFLIX_RED, 'TV Show': '#ff4b4b'}
         )
+
+        # Add shading under lines
+        fig_trend.update_traces(
+            fill='tozeroy',
+            mode='lines',
+            line=dict(width=2)
+        )
+
         st.plotly_chart(fig_trend, use_container_width=True)
         st.info(f"{ins_growth}")
         
@@ -201,9 +234,8 @@ with tab_viz:
         )
         country_df.columns = ['main_country', 'count']
         country_df = country_df.sort_values(by='count', ascending=False).head(10)
-        fig_country = px.bar(country_df, x='count', y='main_country', orientation='h', title='Top 10 Producing Countries',
+        fig_country = px.bar(country_df, x='main_country', y='count', title='Top 10 Producing Countries',
         labels={'count': 'Number of Titles', 'main_country': 'Country'})
-        fig_country.update_yaxes(autorange="reversed")
         fig_country.update_traces(marker_color=NETFLIX_RED)
         st.plotly_chart(fig_country, use_container_width=True)
         st.info(f"{ins_country}")
@@ -216,45 +248,43 @@ with tab_viz:
         st.plotly_chart(fig_genre, use_container_width=True)
         st.info(f"{ins_genre}")
 
-    st.markdown("---")
-    # Row 3: Ratings
-    fig_rating = px.bar(filtered_df['rating'].value_counts().reset_index(), x='rating', y='count', title='Ratings Distribution',
-    labels={'rating': 'Rating', 'count': 'Number of Titles'})
-    fig_rating.update_traces(marker_color=NETFLIX_RED)
-    st.plotly_chart(fig_rating, use_container_width=True)
-    st.info(f"{ins_rating}")
+    # ---- Month-wise Content Addition ----
+    # Prepare monthly data
+    month_df = (
+        filtered_df.dropna(subset=['month_added'])
+        .groupby('month_added')
+        .size()
+        .reset_index(name='count')
+        .sort_values('month_added')
+    )
 
-    # Row 4: Duration Analysis
-    st.markdown("""
-    <h2 style='text-align: center; margin-top: 50px; margin-bottom: 20px;'>
-        Content Duration Insights
-    </h2>
-    """, unsafe_allow_html=True)
-    col_dur1, col_dur2 = st.columns(2)
-    
-    with col_dur1:
-        movie_df = filtered_df[filtered_df['type'] == 'Movie']
-        fig_movie_dur = px.histogram(movie_df, x='duration_num', nbins=30, title="Movie Runtime (Minutes)", color_discrete_sequence=[NETFLIX_RED],
-        labels={'duration_num': 'Runtime (Minutes)'})
-        fig_movie_dur.update_layout(yaxis_title="Number of Titles")
-        st.plotly_chart(fig_movie_dur, use_container_width=True)
-        if not movie_df.empty:
-            st.info(f"Peak runtime is {int(movie_df['duration_num'].mode()[0])} min.")
+    # Month labels
+    month_map = {
+        1: "Jan", 2: "Feb", 3: "Mar", 4: "Apr",
+        5: "May", 6: "Jun", 7: "Jul", 8: "Aug",
+        9: "Sep", 10: "Oct", 11: "Nov", 12: "Dec"
+    }
 
-    with col_dur2:
-        tv_df = filtered_df[filtered_df['type'] == 'TV Show']
-        fig_tv_dur = px.histogram(
-            tv_df,
-            x='duration_num',
-            nbins=10,
-            title="TV Show Seasons Distribution",
-            color_discrete_sequence=[NETFLIX_RED],
-            labels={'duration_num': 'Number of Seasons'}
-        )
-        fig_tv_dur.update_layout(yaxis_title="Number of Titles")
-        st.plotly_chart(fig_tv_dur, use_container_width=True)
-        if not tv_df.empty:
-            st.info(f"Most TV shows run for {int(tv_df['duration_num'].mode()[0])} season(s).")
+    month_df['month_name'] = month_df['month_added'].map(month_map)
+
+    # Line + shading chart
+    fig_month = px.line(
+        month_df,
+        x='month_name',
+        y='count',
+        markers=True,
+        title='Netflix Content Seasonality (Monthly Trend)',
+        labels={'month_name': 'Month', 'count': 'Number of Titles'}
+    )
+
+    # Add shading (THIS is the key part)
+    fig_month.update_traces(
+        fill='tozeroy',
+        line=dict(color=NETFLIX_RED, width=3),
+        marker=dict(size=6)
+    )
+
+    st.plotly_chart(fig_month, use_container_width=True)
 
 # ---- 6. Data Explorer Tab ----
 with tab_explore:
